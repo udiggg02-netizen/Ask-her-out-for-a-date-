@@ -7,60 +7,140 @@
 <title>A Little Question ❤️</title>
 <link rel="stylesheet" href="style.css">
 </head>
+
 <body>
 <div class="floating-hearts"></div>
 
 <main class="card">
   <div class="progress"><span id="bar"></span></div>
 
+  <!-- PAGE 1 -->
   <section class="page active" id="p1">
     <div class="big">💌</div>
     <p class="label">A little something for you</p>
     <h1>Hey… I have a very important question for you 👀</h1>
     <p class="sub">Please hear me out for just a minute. ❤️</p>
-    <button class="primary" onclick="go(2)">Okay, ask me <b>→</b></button>
+    <button class="primary" onclick="go(2)">
+      Okay, ask me <b>→</b>
+    </button>
   </section>
 
+  <!-- PAGE 2 -->
   <section class="page" id="p2">
     <div class="big">🥹</div>
     <p class="label">I've been thinking...</p>
     <h1>I've been thinking about this for a while…</h1>
-    <p class="sub">And I finally gathered enough courage to ask you something I've really wanted to ask. ✨</p>
+    <p class="sub">
+      And I finally gathered enough courage to ask you something I've really wanted to ask. ✨
+    </p>
     <div class="mini-hearts">♡ &nbsp; ♥ &nbsp; ♡</div>
     <button class="primary" onclick="go(3)">Tell me… 👀</button>
   </section>
 
+  <!-- PAGE 3 -->
   <section class="page" id="p3">
     <div class="big">❤️</div>
     <p class="label">Okay, here it is...</p>
     <h1>Would you go on a date with me?</h1>
     <p class="sub" id="tease">Be honest… 😌</p>
+
     <div class="choices">
       <button id="yesBtn" class="yes" onclick="yes()">💗 YES</button>
       <button id="noBtn" class="no">😏 No</button>
     </div>
+
     <p class="tiny">P.S. The NO button is a little shy 😂</p>
   </section>
 
+  <!-- PAGE 4: SHE CHOOSES THE DATE -->
   <section class="page" id="p4">
+    <div class="big">🥹❤️</div>
+    <p class="label">DATE PLANNING 💕</p>
+
+    <h1>Okay, then let's plan our date! ❤️</h1>
+
+    <p class="sub">
+      You choose the date, place and time. It's completely up to you. 🥰
+    </p>
+
+    <div style="margin-top:20px; text-align:left;">
+
+      <label for="dateChoice"><b>📅 Choose a date</b></label>
+      <input
+        type="date"
+        id="dateChoice"
+        style="width:100%; box-sizing:border-box; padding:14px; margin:8px 0 16px; border-radius:12px; border:1px solid #ddd; font-size:16px;"
+      >
+
+      <label for="placeChoice"><b>📍 Choose a place</b></label>
+      <input
+        type="text"
+        id="placeChoice"
+        placeholder="Where should we go? ❤️"
+        style="width:100%; box-sizing:border-box; padding:14px; margin:8px 0 16px; border-radius:12px; border:1px solid #ddd; font-size:16px;"
+      >
+
+      <label for="timeChoice"><b>🕐 Choose a time</b></label>
+      <input
+        type="time"
+        id="timeChoice"
+        style="width:100%; box-sizing:border-box; padding:14px; margin:8px 0 16px; border-radius:12px; border:1px solid #ddd; font-size:16px;"
+      >
+
+    </div>
+
+    <p class="tiny" id="formError"></p>
+
+    <button
+      class="primary"
+      id="confirmBtn"
+      onclick="confirmDate()"
+    >
+      Confirm Date ❤️
+    </button>
+  </section>
+
+  <!-- PAGE 5: FINAL CONFIRMATION -->
+  <section class="page" id="p5">
     <div class="big celebration">🥹❤️</div>
-    <p class="label">DATE UNLOCKED 🔓</p>
-    <h1>I knew you'd say yes!</h1>
-    <p class="sub">Now let's make this a memory worth keeping. ✨</p>
+
+    <p class="label">IT'S A DATE! 💕</p>
+
+    <h1>It's a date! 🥹❤️</h1>
+
+    <p class="sub">Our plan is officially set. ✨</p>
 
     <div class="date-box">
-      <div><span>📅</span><strong>Date</strong><small>YOUR DATE</small></div>
-      <div><span>📍</span><strong>Place</strong><small>YOUR PLACE</small></div>
-      <div><span>🕐</span><strong>Time</strong><small>YOUR TIME</small></div>
+
+      <div>
+        <span>📅</span>
+        <strong>Date</strong>
+        <small id="finalDate">—</small>
+      </div>
+
+      <div>
+        <span>📍</span>
+        <strong>Place</strong>
+        <small id="finalPlace">—</small>
+      </div>
+
+      <div>
+        <span>🕐</span>
+        <strong>Time</strong>
+        <small id="finalTime">—</small>
+      </div>
+
     </div>
 
     <p class="final">Can't wait to see you. ❤️</p>
     <p class="tiny" id="status"></p>
   </section>
+
 </main>
 
 <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
 <script src="config.js"></script>
 <script src="script.js"></script>
+
 </body>
 </html>
