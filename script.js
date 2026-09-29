@@ -124,8 +124,7 @@ async function confirmDate() {
   } catch (err) {
     console.error(err);
 
-    error.textContent =
-      "Something went wrong while saving. Please try again ❤️";
+    error.textContent = "Error: " + (err.message || "Unknown error");
 
     button.disabled = false;
     button.textContent = "Confirm Date ❤️";
